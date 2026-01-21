@@ -37,4 +37,15 @@ class CalculatorService:
             "result": result
         })
         return OutputDTO(result=result)
+    
+    def division(self, dto: InputDTO) -> OutputDTO:
+        result = dto.first_number / dto.second_number
+        self.repository.save({
+            "operation": "divide",
+            "first_number": dto.first_number,
+            "second_number": dto.second_number,
+            "result": result
+        })
+        return OutputDTO(result=result)
+
 

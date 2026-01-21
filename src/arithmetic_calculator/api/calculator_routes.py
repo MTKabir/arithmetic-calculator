@@ -20,3 +20,8 @@ def subtract_numbers(request: InputDTO):
 def multiply_numbers(request: InputDTO):
     return service.multiplication(request)
 
+@router.post("/division", response_model=OutputDTO)
+def divide_numbers(request: InputDTO):
+    return service.division(request)
+
+
