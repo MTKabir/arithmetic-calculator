@@ -1,5 +1,6 @@
 from arithmetic_calculator.repository.calculator_repository import CalculatorRepository
 from arithmetic_calculator.dto.calculator_dto import InputDTO, OutputDTO
+from src.arithmetic_calculator.dto.calculator_dto import HistoryResponseDTO
 
 class CalculatorService:
     def __init__(self, repository: CalculatorRepository ):
@@ -48,4 +49,6 @@ class CalculatorService:
         })
         return OutputDTO(result=result)
 
-
+    def history(self) -> HistoryResponseDTO:
+        history = self.repository.find_all()
+        return HistoryResponseDTO(history=history)

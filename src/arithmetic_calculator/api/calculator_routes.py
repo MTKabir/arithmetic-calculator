@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from arithmetic_calculator.dto.calculator_dto import InputDTO, OutputDTO
+from arithmetic_calculator.dto.calculator_dto import HistoryResponseDTO, InputDTO, OutputDTO
 from arithmetic_calculator.service.calculator_service import CalculatorService
 from arithmetic_calculator.repository.calculator_repository import CalculatorRepository
 
@@ -23,5 +23,10 @@ def multiply_numbers(request: InputDTO):
 @router.post("/division", response_model=OutputDTO)
 def divide_numbers(request: InputDTO):
     return service.division(request)
+
+@router.get("/history", response_model=HistoryResponseDTO)
+def get_history():
+    return service.history()
+
 
 
