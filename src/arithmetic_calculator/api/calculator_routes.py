@@ -15,3 +15,8 @@ def add_numbers(request: InputDTO):
 @router.post("/subtraction", response_model=OutputDTO)
 def subtract_numbers(request: InputDTO):
     return service.subtraction(request)
+
+@router.post("/multiplication", response_model=OutputDTO)
+def multiply_numbers(request: InputDTO):
+    return service.multiplication(request)
+
