@@ -8,6 +8,10 @@ router = APIRouter(prefix="/calculator", tags=["Calculator"])
 repository = CalculatorRepository()
 service = CalculatorService(repository)
 
-@router.post("/add", response_model=OutputDTO)
+@router.post("/addition", response_model=OutputDTO)
 def add_numbers(request: InputDTO):
     return service.addition(request)
+
+@router.post("/subtraction", response_model=OutputDTO)
+def subtract_numbers(request: InputDTO):
+    return service.subtraction(request)
