@@ -1,0 +1,9 @@
+version: "3.9"
+
+services:
+  api:
+    build: .
+    container_name: arithmetic-calculator
+    ports:
+      - "8000:8000"
+    command: uvicorn arithmetic_calculator.main:app --host 0.0.0.0 --port 8000
